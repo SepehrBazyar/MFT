@@ -1,20 +1,20 @@
 from django.urls import path
 
 from content.views import (
-    post_list,
-    post_detail,
+    PostDetailView,
+    PostListView,
 )
 
 
 app_name, urlpatterns = "content", [
     path(
         "post/",
-        post_list,
+        PostListView.as_view(),
         name="post-list",
     ),
     path(
         "post/<int:id>/",
-        post_detail,
+        PostDetailView.as_view(),
         name="post-detail",
-    )
+    ),
 ]
